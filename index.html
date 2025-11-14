@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
   <title>Trying something new</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <header>
@@ -13,11 +12,11 @@
 
   <p>The following are our two assignments.</p>
 
-  <button onclick="loadMarkdown('markdowntest.md', 'content'); makeBackgroundBlue();">
+  <button onclick="loadHTML('assignment1.html', 'content'); makeBackgroundBlue();">
     OPEN Assignment 1
   </button>
 
-  <button onclick="loadMarkdown('markdowntest2.md', 'content'); makeBackgroundBlue();">
+  <button onclick="loadHTML('assignment2.html', 'content'); makeBackgroundBlue();">
     OPEN Assignment 2
   </button>
 
@@ -26,11 +25,11 @@
   </main>
 
   <script>
-    async function loadMarkdown(fileName, componentId) {
+    async function loadHTML(fileName, componentId) {
       try {
         const response = await fetch(fileName);
         const text = await response.text();
-        document.getElementById(componentId).innerHTML = marked.parse(text);
+        document.getElementById(componentId).innerHTML = text;
       } catch (err) {
         document.getElementById(componentId).innerHTML = "<p>Error loading file.</p>";
         console.error(err);
@@ -43,4 +42,3 @@
   </script>
 </body>
 </html>
-
