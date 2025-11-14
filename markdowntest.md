@@ -1,3 +1,3 @@
 # Assignment 1
 
-## trying something new
+## Digital Technologies in Intercultural Studies

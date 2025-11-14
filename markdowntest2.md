@@ -1,3 +1,3 @@
 # ASSIGNMENT 2
 
-## This better work
+## Git-Hub and API explained to Intercultural Studies students
