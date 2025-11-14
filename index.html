@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Trying something new</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Imke's Website</h1>
+    </header>
+
+    <h2 id="daily quote"></h2>
+    <h2 id="joke"></h2>
+    <img id="fox-image" src="" alt="">
+
+    <p>My understanding starts here.</p>
+
+<button onclick="loadMarkdown(markdowntest.md', 'content'); makeBackgroundPink();">
+    Open Assignment 1
+</button>
+
+<button onclick="loadMarkdown(markdowntest2.md', 'content'); makeBackgroundGreen();">
+    Open Assignment 2
+</button>
+
+<main>
+    <div id="content">
+    </div>
+</main>
+</body>
+
+<script>
+async function loadMarkdown(markdowntest.md, componentId) {
+  const response = await fetch(markdowntest.md);
+  const text = await response.text();
+  document.getElementById(componentId).innerHTML = marked.parse(text);
+}
+
+async function loadMarkdown(markdowntest2.md, componentId) {
+  const response = await fetch(markdowntest2.md);
+  const text = await response.text();
+  document.getElementById(componentId).innerHTML = marked.parse(text);
+}
+</script>
+
+</html>
