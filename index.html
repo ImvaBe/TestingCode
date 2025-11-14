@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
-    <title>Trying something new</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <title>Trying something new</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-
 <body>
-    <header>
-        <h1>Welcome to this Website</h1>
-    </header>
+  <header>
+    <h1>Welcome to this Website</h1>
+  </header>
 
+  <p>The following are our two assignments.</p>
 
-    <p>The following are our two assignments.</p>
-
-<button onclick="loadMarkdown('markdowntest', 'content'); makeBackgroundBlue();">
+  <button onclick="loadMarkdown('markdowntest.md', 'content'); makeBackgroundBlue();">
     OPEN Assignment 1
-</button>
+  </button>
 
-<button onclick="loadMarkdown('markdowntest2', 'content'); makeBackgroundBlue();">
+  <button onclick="loadMarkdown('markdowntest2.md', 'content'); makeBackgroundBlue();">
     OPEN Assignment 2
-</button>
+  </button>
 
-<main>
-    <div id="content">
-    </div>
-</main>
+  <main>
+    <div id="content"></div>
+  </main>
+
+  <script>
+    async function loadMarkdown(fileName, componentId) {
+      try {
+        const response = await fetch(fileName);
+        const text = await response.text();
+        document.getElementById(componentId).innerHTML = marked.parse(text);
+      } catch (err) {
+        document.getElementById(componentId).innerHTML = "<p>Error loading file.</p>";
+        console.error(err);
+      }
+    }
+
+    function makeBackgroundBlue() {
+      document.getElementById('content').style.backgroundColor = 'lightblue';
+    }
+  </script>
 </body>
-
-<script>
-async function loadMarkdown(markdowntest, componentId) {
-  const response = await fetch(markdowntest.md);
-  const text = await response.text();
-  document.getElementById(componentId).innerHTML = marked.parse(text);
-}
-
-async function loadMarkdown(markdowntest2, componentId) {
-  const response = await fetch(markdowntest2.md);
-  const text = await response.text();
-  document.getElementById(componentId).innerHTML = marked.parse(text);
-}
-</script>
-
 </html>
+
